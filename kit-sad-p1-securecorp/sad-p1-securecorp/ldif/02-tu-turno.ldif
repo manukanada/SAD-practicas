@@ -40,6 +40,7 @@ dn: cn=sistemas,ou=groups,dc=securecorp,dc=local
 objectClass: groupOfNames
 cn: sistemas
 member: uid=mcanada,ou=people,dc=securecorp,dc=local
+
 #
 # Recuerda:
 #   - Una LÍNEA EN BLANCO entre cada entrada.
