@@ -1,4 +1,4 @@
-# Respuestas · Práctica 2 · Bodegas Atlántico
+># Respuestas · Práctica 2 · Bodegas Atlántico
 
 > Rellena este fichero en tu ordenador. Va en la entrega (`./lab.sh entregar`) y en la defensa te pueden preguntar por él.
 
@@ -7,14 +7,30 @@
 Desde la calle: `./lab.sh cliente` y dentro `nmap -Pn -p 22,80,443,5432,8080 198.51.100.254`. Pega la salida:
 
 ```text
-(pega aquí la salida de nmap)
+root@cliente:/# nmap -Pn -p 22,80,443,5432,8080 198.51.100.254
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-11-05 11:06 UTC
+Nmap scan report for sad-p2-fw.sad-p2_calle (198.51.100.254)
+Host is up (0.000042s latency).
+
+PORT     STATE    SERVICE
+22/tcp   filtered ssh
+80/tcp   open     http
+443/tcp  open     https
+5432/tcp filtered postgresql
+8080/tcp filtered http-proxy
+MAC Address: 22:CC:CA:C6:DB:04 (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 1.27 seconds
 ```
 
 ## Bloque A · El contador
 
 Después de `./lab.sh comprobar`, mira `./lab.sh ver`. ¿Cuántos paquetes lleva el contador de A6? ¿Quién los ha mandado?
 
->
+> iifname "dmz" oifname "lan" counter packets 12 bytes 720 drop # handle 17
+Lleva un total de 12 paquetes, los cuales provienen de la DMZ, los ha podido enviar un cliente, un ciberdelincuente
+o algún empleado despistado que intenta entrar en las oficinas a través de la tienda.
+
 
 ## Bloque B · La prueba del cifrado
 
