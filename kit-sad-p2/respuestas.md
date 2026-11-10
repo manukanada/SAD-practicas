@@ -28,8 +28,8 @@ Nmap done: 1 IP address (1 host up) scanned in 1.27 seconds
 Después de `./lab.sh comprobar`, mira `./lab.sh ver`. ¿Cuántos paquetes lleva el contador de A6? ¿Quién los ha mandado?
 
 > iifname "dmz" oifname "lan" counter packets 12 bytes 720 drop # handle 17
-Lleva un total de 12 paquetes, los cuales provienen de la DMZ, los ha podido enviar un cliente, un ciberdelincuente
-o algún empleado despistado que intenta entrar en las oficinas a través de la tienda.
+>Lleva un total de 12 paquetes, los cuales provienen de la DMZ, los ha podido enviar un cliente, un ciberdelincuente
+>o algún empleado despistado que intenta entrar en las oficinas a través de la tienda.
 
 
 ## Bloque B · La prueba del cifrado
@@ -38,12 +38,23 @@ En el firewall (`./lab.sh fw`): `tcpdump -ni wan host 198.51.100.62 -c 6`. Mient
 (`./lab.sh comercial`) hace `curl http://172.16.10.20:8080`. Pega lo que sale en el firewall:
 
 ```text
-(pega aquí la salida de tcpdump)
+root@fw:/# tcpdump -ni wan host 198.51.100.62 -c 6
+tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+listening on wan, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+09:49:16.555558 IP 198.51.100.62.53180 > 198.51.100.254.51820: UDP, length 96
+09:49:16.555676 IP 198.51.100.62.53180 > 198.51.100.254.51820: UDP, length 148
+09:49:16.555681 IP 198.51.100.254.51820 > 198.51.100.62.53180: UDP, length 96
+09:49:16.555874 IP 198.51.100.254.51820 > 198.51.100.62.53180: UDP, length 92
+09:49:16.555998 IP 198.51.100.62.53180 > 198.51.100.254.51820: UDP, length 96
+09:49:16.556007 IP 198.51.100.62.53180 > 198.51.100.254.51820: UDP, length 176
+6 packets captured
+13 packets received by filter
+0 packets dropped by kernel
 ```
 
 En dos líneas: ¿qué se ve por la calle y qué NO se ve?
-
->
+>Por la calle se ve que los paquetes utilizan UDP para comunicarse y su tamaño en bytes, 
+>y no se ve su contenido, ni la IP interna del comercial ya que viajan de manera cifrada por la VPN.
 
 ## Bloque C · Para la defensa (C4)
 
