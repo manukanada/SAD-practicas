@@ -61,7 +61,11 @@ En dos líneas: ¿qué se ve por la calle y qué NO se ve?
 Del **mismo ataque** (la inyección a la web): ¿qué ve el vigilante de la red (el IDS) y qué ve el portero de la web? ¿Por
 qué hacen falta los dos?
 
->
+>>El IDS (vigilante de la red) que en este caso es suricata vigila el tráfico de la red y analiza 
+>>comportamientos sospechosos a partir de unas reglas lo cual envía una alerta, en cambio, el portero 
+>>de la web que es waf analiza las peticiones web por dentro, identificando más especificamente si se 
+>>trata de un ataque o no bloqueandolos en el proceso.
+>>Podriamos decir que ambas se complementan entre sí consiguiendo una protección más completa. 
 
 ## Bloque D · La nota del servidor (D0 y D4)
 
