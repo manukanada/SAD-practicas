@@ -58,8 +58,8 @@ En dos líneas: ¿qué se ve por la calle y qué NO se ve?
 
 ## Bloque C · Para la defensa (C4)
 
-Del **mismo ataque** (la inyección a la web): ¿qué ve el vigilante de la red (el IDS) y qué ve el portero de la web? ¿Por
-qué hacen falta los dos?
+Del **mismo ataque** (la inyección a la web): ¿qué ve el vigilante de la red (el IDS)
+y qué ve el portero de la web? ¿Por qué hacen falta los dos?
 
 >>El IDS (vigilante de la red) que en este caso es suricata vigila el tráfico de la red y analiza 
 >>comportamientos sospechosos a partir de unas reglas lo cual envía una alerta, en cambio, el portero 
@@ -71,8 +71,14 @@ qué hacen falta los dos?
 
 Nota del análisis **antes** de bastionar (D0):
 
->
+>Nota del servidor (hardening index): 57 / 100
 
-Nota **después** (D4). ¿Por qué no llega a 100? ¿Significa que el servidor sigue inseguro? Comenta un aviso que siga saliendo.
+Nota **después** (D4). ¿Por qué no llega a 100? ¿Significa que el servidor sigue inseguro? 
+Comenta un aviso que siga saliendo.
 
->
+>Nota del servidor (hardening index): 62 / 100
+>No llega al 100 porque lynis revisa toda la seguridad y hay cosas como HTTPS o más medidas de SSH que no tocamos en esta práctica.
+>No tiene porque significar que sea inseguro, simplemente que todavía hay aspectos de la seguridad que 
+>pueden seguir mejorandose, como por ejemplo este: SSH-7408 · Consider hardening SSH configuration · Port (set 22 to ).
+>Esto se debe a que el puerto para SSH sigue siendo 22 (el que viene predeterminado) y esto hace
+>que sea más facil encontrar la puerta de entrada o hacer ataques que son automáticos a ese puerto.
